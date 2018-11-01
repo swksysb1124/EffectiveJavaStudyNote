@@ -13,13 +13,12 @@ public static Boolean valueOf(boolean b) {
 
 ### 靜態工廠方法有名字
 
-建構子一般來說很難說明回傳的物件跟輸入的參數
-使用一個定義良好的靜態工廠方法名稱，使它容易使用且客戶端程式也容易閱讀。
+建構函式一般來說很難說明回傳的物件跟輸入的參數的關係。透過定義良好的靜態工廠方法名稱，使它容易使用且客戶端程式也容易閱讀。
 
 
 ### 靜態工廠方法不受建構子單一簽名的限制
 
-Java的方法有單一簽名的限制，當然建構子也不意外。透過特製化各個靜態方法名稱，即使輸入參數一樣，我們還是可以賦予回傳物件的意義。
+Java的方法(Method)有單一簽名的限制，當然建構函式也不意外。透過特製化各個靜態工廠方法名稱，即使輸入參數一樣，還是可以生成物件。
 
 >簽名 = 方法名稱 + 輸入參數
 
@@ -36,17 +35,13 @@ Java的方法有單一簽名的限制，當然建構子也不意外。透過特�
 
 ### 靜態工廠方法可以減少創建參數型別的實體的冗長敘述
 
-比如說當我們需要一個 Map 的結構
+比如說當我們需要一個`Map`的結構
 ```java
 // 實體化一個 Map 結構
 Map<String, List<String>> m = 
 	new HashMap<String, List<String>>();
 ```
-可以看到 `new HashMap<String, List<String>>()` 這段很冗長，
-如果今天輸入參數不同，變成 Integer 變成 Long，就會變成
-`new HashMap<Integer, List<Integer>>()`
-`new HashMap<Long, List<Long>>()`
-變得更冗長。
+可以看到 `new HashMap<String, List<String>>()` 這段很冗長，如果今天輸入參數不同，變成`Integer`變成`Long`型別，就會變成`new HashMap<Integer, List<Integer>>()`&`new HashMap<Long, List<Long>>()`，變得更冗長。
 
 
 改成**靜態工廠方法**
@@ -60,7 +55,6 @@ class MapUtil{
 
 Map<String, List<String>> m = MapUtil.newInstance();
 ```
-
 
 ## 使用靜態工廠方法的缺點：
 
