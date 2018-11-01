@@ -1,4 +1,4 @@
-# 第一條： 考慮靜態工廠方法(static factory method) 替代建構子 (constructor) 
+# 第一條： 考慮使用靜態工廠方法(static factory method)，替代建構函式(constructor)
 
 ### 所謂的**靜態工廠方法 (static factory method)**，就是指一個類別提供一個靜態方法來返回這個類別的實例(物件)。
 
